@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+
+        <template id="template">
+            <t t-foreach="[1, 2, 3]" t-as="i">
+    <p><t t-out="i"/></p>
+</t>
+
+        </template>
+
+    </data>
+</odoo>

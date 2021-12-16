@@ -1,0 +1,7 @@
+<odoo>
+    <data>
+        <template id="footer" name="footer" >
+
+        </template>
+    </data>
+</odoo>

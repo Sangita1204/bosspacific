@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="bosspac_resource.list">
+      <field name="name">bosspac_resource list</field>
+      <field name="model">bosspac_resource.bosspac_resource</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="bosspac_resource.action_window">
+      <field name="name">bosspac_resource window</field>
+      <field name="res_model">bosspac_resource.bosspac_resource</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="bosspac_resource.action_server">
+      <field name="name">bosspac_resource server</field>
+      <field name="model_id" ref="model_bosspac_resource_bosspac_resource"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="bosspac_resource" id="bosspac_resource.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="bosspac_resource.menu_1" parent="bosspac_resource.menu_root"/>
+    <menuitem name="Menu 2" id="bosspac_resource.menu_2" parent="bosspac_resource.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="bosspac_resource.menu_1_list" parent="bosspac_resource.menu_1"
+              action="bosspac_resource.action_window"/>
+    <menuitem name="Server to list" id="bosspac_resource" parent="bosspac_resource.menu_2"
+              action="bosspac_resource.action_server"/>
+-->
+  </data>
+</odoo>

@@ -1,0 +1,23 @@
+<odoo>
+    <data>
+
+        <template id="templated">
+<!--            <t t-call="bosspac_product_management.templates">-->
+<!--                <t t-foreach="[1, 2, 3]" t-as="i">-->
+<!--                    <p><t t-out="i"/></p>-->
+<!--                </t>-->
+<!--            </t>-->
+
+           <div>
+               <t t-foreach="[1, 2, 3]" t-as="i">
+                 <p><t t-out="i"/></p>
+                   <p>hello this is bosspac Sijan</p>
+            </t>
+           </div>
+
+
+
+        </template>
+
+    </data>
+</odoo>

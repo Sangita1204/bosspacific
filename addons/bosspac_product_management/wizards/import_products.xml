@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding ="utf-8"?>
+<odoo>
+
+ <record id="import_products_form" model="ir.ui.view">
+        <field name="name">import.products.wizard</field>
+        <field name="model">import.products</field>
+        <field name="arch" type="xml">
+            <form string="Import Products">
+                <group>
+
+
+                    <field name="vendor" required="True"/>
+                    <field name="uploads" widget="binary"  />
+<!--                    <field name="up"/>-->
+                </group>
+                <footer>
+                    <button name= "imports" string="Import Data" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="import_products_wizard">
+        <field name="name">Import products</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">import.products</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="import_products_form"/>
+        <field name="target">new</field>
+    </record>
+
+    <record model="ir.ui.view" id="import_product_view">
+            <field name="model">import.products</field>
+        <field name="type">form</field>
+            <field name="arch" type="xml">
+
+            <field name='context_active_id' />
+                <div>{{{ env.context }}}</div>
+<!--                <strong>Message: </strong><strong>{{{ message }}}</strong>-->
+                 <ul colspan="2">
+                {% for item in rows %}
+                <li>{{{ item  }}}</li>
+                {% endfor  %}
+            </ul>
+
+            </field>
+        </record>
+
+<record model="ir.actions.act_window" id="import_product_action">
+<!--        <field name="name">Template</field>-->
+        <field name="res_model">import.products</field>
+        <field name="view_mode">form</field>
+    <field name="target" >new</field>
+
+        <field name="view_id" ref="import_product_view"/>
+    </record>
+
+<!--    <record model="ir.actions.client" id="import_product_action">-->
+<!--        <field name="name">Template</field>-->
+<!--        <field name="tag">bosspac_product_management</field>-->
+<!--&lt;!&ndash;        <field name="res_model">import.products.view</field>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        can pass main as well&ndash;&gt;-->
+<!--        <field name="context">{-->
+<!--            'test': 'Maharjan'-->
+<!--            }-->
+<!--        </field>-->
+<!--        <field name="target" >new</field>-->
+
+<!--    </record>-->
+
+
+</odoo>

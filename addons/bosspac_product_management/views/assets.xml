@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend" name="web view assets" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/bosspac_product_management/static/src/js/template.js"/>
+           <link rel="stylesheet" type="text/scss" href="/bosspac_product_management/static/src/scss/hello_world_view.scss"/>
+        </xpath>
+    </template>
+</odoo>

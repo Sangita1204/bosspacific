@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+    <template xml:space="preserve">
+    <t t-name="Dashboard">
+    <div class="row">
+        <p>Dashboard</p>
+        <t t-foreach="[1, 2, 3]" t-as="i">
+            <p><t t-out="Hello"/></p>
+        </t>
+    </div>
+</t>
+</template>

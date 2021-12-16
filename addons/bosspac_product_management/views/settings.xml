@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding ="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="10"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block" string="Product Management" data-key="bosspac_product_management">
+                    <h2>Product Management</h2>
+                     <div class="row mt16 o_settings_container">
+                        <div class="o_settings_left_pane">
+                            <form role="form" action="." method="POST">
+<!--                                <div class="form-group">-->
+<!--                                <label for="access_code" name="access_code" String="Access Code" class="o_form_label"/>-->
+<!--                                <input type="text" name="access_code" id="access_code"/>-->
+<!--                            </div>-->
+<!--                            <div class="clearfix">-->
+<!--                                <button type="submit" class="btn btn-primary" name="Save">Save</button>-->
+
+<!--                            </div>-->
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </field>
+
+    </record>
+     <record id="product_management_menu_settings_action" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_id" ref="res_config_settings_view_form"/>
+        <field name="view_mode">form</field>
+        <field name="target" >inline</field>
+        <field name="context">{'module':'bosspac_product_management'}</field>
+    </record>
+
+
+
+    <!--  parent menu for congiguration/ settings  -->
+    <menuitem id="product_management_menu_configuration" name="Configuration"
+                     parent="my_main_root" sequence="5"
+                     />
+    <menuitem id="product_management_menu_settings" name="Settings"
+                     parent="product_management_menu_configuration"
+                     action="product_management_menu_settings_action"
+              sequence="4"
+                     />
+</odoo>

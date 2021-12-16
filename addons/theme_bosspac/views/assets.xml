@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="_assets_primary_variables" inherit_id="website._assets_primary_variables" priority="1">
+        <xpath expr="//link[last()]" position="after">
+             <link rel="stylesheet" type="text/css" href="/theme_bosspac/static/src/jquery-ui-1.12.1.custom/jquery-ui.min.css" />
+            <link rel="stylesheet" type="text/css" href="/theme_bosspac/static/src/css/bootstrap.min.css" />
+            <link rel="stylesheet" type="text/css" href="/theme_bosspac/static/src/DataTables/DataTables-1.10.23/css/jquery.dataTables.min.css"/>
+            <link rel="stylesheet" type="text/css" href="/theme_bosspac/static/src/DataTables/FixedHeader-3.1.7/css/fixedHeader.dataTables.min.css"/>
+            <link rel="stylesheet" type="text/css" href="/theme_bosspac/static/src/DataTables/Responsive-2.2.7/css/responsive.dataTables.min.css"/>
+            <link rel="stylesheet" type="text/css"  href="/theme_bosspac/static/src/css/templates.css"/>
+        </xpath>
+    </template>
+
+    <template id="assets_editor" inherit_id="website.assets_editor">
+        <xpath expr="//script[last()]" position="after">
+                        <script type="text/javascript" src="/theme_bosspac/static/src/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+            <script type="text/javascript" src="/theme_bosspac/static/src/DataTables/DataTables-1.10.23/js/jquery.dataTables.min.js"></script>
+            <script type="text/javascript" src="/theme_bosspac/static/src/DataTables/FixedHeader-3.1.7/js/dataTables.fixedHeader.min.js"></script>
+            <script type="text/javascript" src="/theme_bosspac/static/src/DataTables/Responsive-2.2.7/js/dataTables.responsive.min.js"></script>
+            <script type="text/javascript" src="/theme_bosspac/static/src/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <script type="text/javascript" src="/theme_bosspac/static/src/bootstrap/js/bootstrap.min.js"></script>
+            <script type="text/javascript" src="//theme_bosspac/static/src/js/node.js"></script>
+            <script type="text/javascript" src="//theme_bosspac/static/src/js/scroll_view.js"></script>
+            <script type="text/javascript" src="//theme_bosspac/static/src/js/product_shelf.js"></script>
+            <script type="text/javascript" src="//theme_bosspac/static/src/js/dragdrop.js"></script>
+            <script type="text/javascript" src="//theme_bosspac/static/src/js/script_resizable.js"></script>
+            <script type="text/javascript" src="//theme_bosspac/static/src/js/script_selectRow.js"></script>
+            <script type="text/javascript" src="//theme_bosspac/static/src/js/script_addClass.js"></script>
+            <script type="text/javascript" src="//theme_bosspac/static/src/js/script_dragDrop.js"></script>
+            <script type="text/javascript" src="//theme_bosspac/static/src/js/script_multiSelector.js"></script>
+            <script type="text/javascript" src="//theme_bosspac/static/src/js/imgGallery.js"></script>
+        </xpath>
+    </template>
+</odoo>

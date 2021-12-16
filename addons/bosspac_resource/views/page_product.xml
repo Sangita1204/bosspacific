@@ -1,0 +1,400 @@
+<odoo>
+    <data>
+        <template id="page_product" name="page_product">
+            <div id = "conductor" class="row">
+                <div class="col" id="myDiv">
+                    <div class="panel" id="panel">
+                        <p>
+												<input type="text" id = "myInput" name="node" placeholder="Search Nodes"/>
+												<input id="textBox2" type="hidden" name="textBox2" />
+												<input id="_id" type="hidden" name="textBox3" />
+												<input id="textBox4" type="hidden" name="textBox4" />
+											</p>
+                    </div>
+					<div id="droppable">
+                        <input id="fieldid" type="hidden" value="" />
+                        <ul id = "myULi">
+                            <t t-foreach="ProductCategory" t-as="product_category_name">
+                                <t t-if="not product_category_name.parent_id">
+                                    <li>
+                                        <div>
+                                            <a t-attf-href="/pcm/products/{{product_category_name.id}}" t-attf-id="{{product_category_name.id}}" cname="All" path="1">
+																	<t t-if="id == 1">
+																		<div class="droppable" draggable="true" style="background-color:#90A25D;">
+																			<t t-esc="product_category_name.complete_name" />
+																		</div>
+																	</t>
+																	<t t-else="">
+																		<div class="droppable" draggable="true" >
+																			<t t-esc="product_category_name.complete_name"/>
+																		</div>
+																	</t>
+																</a>
+                                        </div>
+                                        <ul class = "nested">
+																<t t-foreach="subitems" t-as="subitems2">
+																	<t t-foreach="subitems2['subitems2']" t-as="_sub">
+																		<t t-if="_sub['subitems2']">
+																			<li>
+																				<div>
+																					<a t-attf-href="/pcm/products/{{_sub['id']}}" t-attf-id="{{_sub['id']}}" t-attf-cname="{{_sub['complete_name']}}" t-attf-path="{{_sub['parent_path']}}">
+																						<t t-if="id == _sub['id']" >
+																							<div class="droppable" draggable="true" style="background-color:#90A25D;">
+																								<t t-esc="_sub['name']"/>
+																							</div>
+																						</t>
+																						<t t-else="" >
+																							<div class="droppable" draggable="true" >
+																								<t t-esc="_sub['name']"/>
+																							</div>
+																						</t>
+																					</a>
+																				</div>
+																				<ul class="nested">
+																					<t t-foreach="_sub['subitems2']" t-as="_sub">
+																						<t t-if="_sub['subitems2']">
+																							<li>
+																								<div>
+																									<a t-attf-href="/pcm/products/{{_sub['id']}}" t-attf-id="{{_sub['id']}}" t-attf-cname="{{_sub['complete_name']}}" t-attf-path="{{_sub['parent_path']}}">
+																										<t t-if="id == _sub['id']" >
+																											<div class="droppable" draggable="true" style="background-color:#90A25D;">
+																												<t t-esc="_sub['name']"/>
+																											</div>
+																										</t>
+																										<t t-else="">
+																											<div class="droppable" draggable="true" >
+																												<t t-esc="_sub['name']"/>
+																											</div>
+																										</t>
+																									</a>
+																								</div>
+																								<ul class="nested">
+																									<t t-foreach="_sub['subitems2']" t-as="_sub">
+																										<t t-if="_sub['subitems2']">
+																											<li>
+																												<div>
+																													<a t-attf-href="/pcm/products/{{ _sub['id'] }}" t-attf-id="{{_sub['id']}}" t-attf-cname="{{_sub['complete_name']}}" t-attf-path="{{_sub['parent_path']}}">
+																														<t t-if="id == _sub['id']" >
+																															<div class="droppable" draggable="true" style="background-color:#90A25D;" >
+																																<t t-esc="_sub['name']"/>
+																															</div>
+																														</t>
+																															<t t-else="">
+																																<div class="droppable" draggable="true" >
+																																	<t t-esc="_sub['name']"/>
+																																</div>
+																															</t>
+																													</a>
+																												</div>
+																												<ul class="nested">
+																													<t t-foreach="_sub['subitems2']" t-as="_sub">
+																														<a t-attf-href="/pcm/products/{{ _sub['id']}}" t-attf-id="{{_sub['id']}}" t-attf-cname="{{_sub['complete_name']}}" t-attf-path="{{_sub['parent_path']}}">
+																															<t t-if="id == _sub['id']">
+																																<div class="droppable" draggable="true" style="background-color:#90A25D;">
+																																	<t t-esc="_sub['name']" />
+																																</div>
+																															</t>
+																															<t t-else="">
+																																<div class="droppable" draggable="true">
+																																	<t t-esc="_sub['name']" />
+																																</div>
+																															</t>
+																														</a>
+																													</t>
+																												</ul>
+																											</li>
+																										</t>
+																										<t t-else="">
+																											<li>
+																												<a t-attf-href="/pcm/products/{{ _sub['id'] }}" t-attf-id="{{_sub['id']}}" t-attf-cname="{{_sub['complete_name']}}" t-attf-path="{{_sub['parent_path']}}">
+																													<t t-if="id == _sub['id']">
+																														<div class="droppable" draggable="true" style="background-color:#90A25D;">
+																															<t t-esc="_sub['name']" />
+																														</div>
+																													</t>
+																													<t t-else="">
+																														<div class="droppable" draggable="true">
+																															<t t-esc="_sub['name']" />
+																														</div>
+																													</t>
+																												</a>
+																											</li>
+																										</t>
+																									</t>
+																								</ul>
+																							</li>
+																						</t>
+																						<t t-else="">
+																							<li>
+																								<a t-attf-href="/pcm/products/{{ _sub['id'] }}" t-attf-id="{{_sub['id']}}" t-attf-cname="{{_sub['complete_name']}}" t-attf-path="{{_sub['parent_path']}}">
+																									<t t-if="id == _sub['id']">
+																										<div class="droppable" draggable="true" style="background-color:#90A25D;">
+																											<t t-esc="_sub['name']" />
+																										</div>
+																									</t>
+																									<t t-else="">
+																										<div class="droppable" draggable="true">
+																											<t t-esc="_sub['name']" />
+																										</div>
+																									</t>
+																								</a>
+																							</li>
+																						</t>
+																					</t>
+																				</ul>
+																			</li>
+																		</t>
+																		<t t-else="">
+																			<li>
+																				<a t-attf-href="/pcm/products/{{ _sub['id'] }}" t-attf-id="{{_sub['id']}}" t-attf-cname="{{_sub['complete_name']}}" t-attf-path="{{_sub['parent_path']}}">
+																					<t t-if="id == _sub['id']">
+																						<div class="droppable" draggable="true" style="background-color:#90A25D;">
+																							<t t-esc="_sub['name']" />
+																						</div>
+																					</t>
+																					<t t-else="">
+																						<div class="droppable" draggable="true" >
+																							<t t-esc="_sub['name']" />
+																						</div>
+																					</t>
+																				</a>
+																			</li>
+																		</t>
+																	</t>
+																</t>
+															</ul>
+														</li>
+                                </t>
+                            </t>
+                        </ul>
+                    </div>
+                </div>
+				<!--=======Table Section==========-->
+				<div class="col-6" id="myDiv2">
+										<!-- this is the table for product related details, hence draggable and sortable -->
+
+										<table id ="myTablei">
+											<thead>
+												<tr class="drag_head">
+													<th scope=".col-1">Product ID</th>
+													<th scope="col">Name</th>
+													<th scope="col">Manufacturer's Number</th>
+													<th scope="col">Brand</th>
+													<th scope="col">Qty1</th>
+													<th scope="col">Cost</th>
+													<th scope="col">Sales Price</th>
+													<th scope="col">Image</th>
+
+												</tr>
+
+											</thead>
+
+											<tbody>
+												<t t-foreach = "item" t-as ="item_child">
+													<tr class="drag" t-attf-id = "{{item_child['id']}}">
+														<td><t t-esc = "item_child['id']"/></td>
+														<td>
+															<a t-attf-href="/web#id={{item_child['id']}}&amp;action=318&amp;model=product.template&amp;view_type=form&amp;cids=&amp;menu_id=215">
+																<t t-esc = "item_child['name']"/>
+															</a>
+														</td>
+														<td><t t-esc = "item_child['vendor_id']"/></td>
+
+														<td><t t-esc = "item_child['brand']"/></td>
+
+														<td><t t-esc = "item_child['qty1']"/></td>
+														<td><t t-esc = "item_child['cost']"/></td>
+
+														<td><t t-esc = "item_child['sales_price']"/></td>
+														<td>
+														<img t-attf-src="/web/image?model=product.template&amp;field=image_128&amp;id={{item_child['id']}}&amp;unique=" style="align:left; width:32px;height:32px;"/>
+														</td>
+													</tr>
+
+												</t>
+
+											</tbody>
+
+										</table>
+
+									</div>
+            </div>
+            <!--======This is where conductor officially ends==========-->
+			<ul class='custom-menu'>
+					  <li data-action="first" data-target="#myModal2" data-toggle="modal" onclick="img_gallery_ajax_newegg()">Scrape Newegg</li>
+					  <li data-action="second" data-target="#myModal2" data-toggle="modal" onclick="imgGalleryAjax()" >Scrape Google</li>
+					  <li data-action="third" data-target="#myModal2" data-toggle="modal" onclick="img_gallery_ajax_pcbyte()" >Scrape PCByte</li>
+					  <li data-action="fourth" data-target="#myModal2" data-toggle="modal" onclick="img_gallery_ajax_amazon()">Scrape Amazon</li>
+					  <li data-action="fifth" data-target="#myModal2" data-toggle="modal" onclick="img_gallery_ajax_mwave()" >Scrape Mwave</li>
+
+					</ul>
+
+			<ul class="custom-menu-drop">
+						<li data-action="first" data-target="#myModal" data-toggle="modal">Create Sub-Category</li>
+						<li data-action="second">Collapse Category</li>
+						<li data-action="third" onclick="catDropAjax()">Drop Category </li>
+						<li data-action="fourth">Create Product </li>
+					</ul>
+
+			<!--============Modal to create category=======-->
+			<t t-foreach='lyes' t-as='_lye'>
+						<form id="myForm">
+							<!-- Modal -->
+							<div class="modal fade" id="myModal" role="dialog">
+								<div class="modal-dialog">
+									<!-- Modal content-->
+									<div class="modal-content">
+										<div class="modal-header">
+											<h4 class="modal-title">Create Category</h4>
+											<button type="button" class="close" data-dismiss="modal">&amp;times;</button>
+										</div>
+										<div class="modal-body">
+											<label for="par_cat">Parent Category: </label>
+											<input id="par_cat" class="resizedTextbox" list="categories" name="complete_name" />
+											<datalist id="categories">
+												<option t-attf-value="{{_lye.complete_name}}" />
+											</datalist>
+											<br />
+											<br />
+											<input type="text" name="name" id="cat_Txt" placeholder="Create category here..." required="true" /> <br />
+											<br />
+											<input type="text" name="parent_path" id="par_path" t-attf-value="{{_lye.parent_path}}" />
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default" data-dismiss="modal" onclick="catCreatAjax()">Submit</button>
+											<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+					</t>
+			<!--==================Modal to view Images========================-->
+			<form id="myForm2" >
+						<!-- Modal2-->
+						<div class="modal fade" id="myModal2" role="dialog">
+							<div class="modal-dialog modal-sm">
+								<!-- Modal content-->
+								<div class="modal-content">
+									<div class="modal-header">
+										<h4 class="modal-title">Scrape Engine </h4>
+										<button type="button" class="close" data-dismiss="modal">&amp;times;</button>
+									</div>
+									<div class="modal-body">
+										<div id="main" class="flex-container">
+											<div class="gallery" id = "1">
+												<a target="_blank">
+													<img class="image" alt="Cinque Terre" id="image1" src="/product_shelf/static/src/img/load.gif" width="600" height="400"/>
+												</a>
+												<div class="desc">Image 1</div>
+											</div>
+											<div class="gallery" id = "2">
+												<a target="_blank">
+													<img class="image"  alt="Mountains" id="image2" src="/product_shelf/static/src/img/load.gif" width="600" height="400"/>
+												</a>
+												<div class="desc">Image 2</div>
+											</div>
+										<!-- </div> -->
+										<!-- <div id="main" class="flex-container"> -->
+											<div class="gallery" id = "3">
+												<a target="_blank">
+													<img class="image"  alt="Forest" id="image3" src="/product_shelf/static/src/img/load.gif" width="600" height="400"/>
+												</a>
+												<div class="desc">Image 3</div>
+											</div>
+											<div class="gallery" id = "4">
+												<a target="_blank">
+													<img class="image"  alt="Northern Lights" id="image4" src="/product_shelf/static/src/img/load.gif" width="600" height="400"/>
+												</a>
+												<div class="desc">Image 4</div>
+											</div>
+										</div>
+										<div id="main" class="flex-container">
+											<div class="gallery" id = "5">
+												<a target="_blank">
+													<img class="image"  alt="Forest" id="image5" src="/product_shelf/static/src/img/load.gif" width="600" height="400"/>
+												</a>
+												<div class="desc">Image 5</div>
+											</div>
+											<div class="gallery" id = "6">
+												<a target="_blank">
+													<img class="image"  alt="Cinque Terre" id="image6" src="/product_shelf/static/src/img/load.gif" width="600" height="400"/>
+												</a>
+												<div class="desc">Image 6</div>
+											</div>
+										</div>
+											<div class="myTextbox">
+												<input id="textBox1" type="hidden" name="textBox1"/>
+											</div>
+
+										<br />
+									</div>
+									<div class="modal-footer">
+										<button id ="up_2" type="button" class="btn btn-default" onclick="uploadImgAjax()" data-dismiss="modal" >Submit</button>
+										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+									</div>
+								</div>
+							</div>
+						</div>
+
+					</form>
+
+			<!--==============================Modal 3 for odoo front-end simulation==============================-->
+			<div class="modal fade" id="myModal3" role="dialog">
+						<div class="modal-dialog modal-xl">
+							<!-- Modal content-->
+							<div class="modal-content">
+								<div class="modal-header">
+									<h4 class="modal-title">Product Backend</h4>
+									<button type="button" class="close" data-dismiss="modal">&amp;times;</button>
+								</div>
+								<div class="modal-body">
+								<!-- <t t-foreach = "item" t-as ="item"> -->
+									<div class="row">
+										<div class="col-md-4"><p id ='name'></p></div>
+										<div class="col-md-4 ml-auto"><img id = 'image-1' style="align:right; width:100px;height:100px;float:inline-end;"  /></div>
+									</div>
+									<p id='vendor'></p>
+									<p id='description'> </p>
+									<ul class="nav nav-tabs">
+										<li id = 'first-bt' class="nav-item">
+											<a class="nav-link active" href="#">General Info</a>
+
+										</li>
+										<li id = 'second-bt' class="nav-item" >
+											<a class="nav-link" href="#">Variants</a>
+										</li>
+										<li id = 'third-bt' class="nav-item" >
+											<a class="nav-link" href="#">Sales</a>
+										</li>
+										<li id = 'fourth-bt' class="nav-item" >
+											<a class="nav-link" href="#">Point of Sale</a>
+										</li>
+										<li id = 'fifth-bt' class="nav-item" >
+											<a class="nav-link" href="#">eCommerce</a>
+										</li>
+										<li id = 'sixth-bt' class="nav-item" >
+											<a class="nav-link" href="#">Purchase</a>
+										</li>
+										<li id = 'seventh-bt' class="nav-item" >
+											<a class="nav-link" href="#">Inventory</a>
+										</li>
+										<li id = 'eight-bt' class="nav-item" >
+											<a class="nav-link" href="#">Accounting</a>
+										</li>
+									</ul>
+									<div id='white-board'>
+
+									</div>
+								<!-- </t> -->
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default" data-dismiss="modal" >Submit</button>
+									<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+								</div>
+							</div>
+						</div>
+					</div>
+        </template>
+    </data>
+</odoo>

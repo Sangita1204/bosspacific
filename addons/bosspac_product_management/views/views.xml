@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding ="utf-8"?>
+<odoo>
+
+
+
+<record model="ir.ui.view" id="bosspac_template">
+            <field name="model">bosspac_product</field>
+            <field name="type">qweb</field>
+            <field name="arch" type="xml">
+                <t t-call="bosspac_product_management.template"/>
+            </field>
+        </record>
+
+<record model="ir.actions.act_window" id="product_management_menu_action">
+        <field name="name">Template</field>
+        <field name="res_model">bosspac_product</field>
+        <field name="view_mode">qweb</field>
+        <field name="view_id" ref="bosspac_template"/>
+
+    </record>
+
+    <record model="ir.actions.act_window" id="product_management_import_products_action">
+        <field name="name">Import products</field>
+        <field name="res_model">bosspac_product</field>
+        <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class= "oe_view_nocontent_create">Click Create import products. </p>
+            </field>
+
+    </record>
+
+
+
+    <menuitem name="Product Management" id="my_main_root" sequence="15"/>
+    <menuitem id="product_management_menu" name="Product"
+                      parent="my_main_root"
+                      sequence="4"
+                     />
+
+            <menuitem id="product_management_products" name="Products"
+                     parent="product_management_menu"
+                     action="product_management_menu_action"
+                      sequence="2"
+
+                     />
+    <menuitem id="product_management_import_products" name="Import Products"
+                     parent="product_management_menu"
+                     action="import_products_wizard"
+                      sequence="2"
+
+
+                     />
+
+</odoo>

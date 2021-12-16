@@ -1,0 +1,7 @@
+<odoo>
+    <data>
+        <template id="header" name="header" >
+
+        </template>
+    </data>
+</odoo>

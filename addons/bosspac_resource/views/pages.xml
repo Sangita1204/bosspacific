@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <template id="pages" name="pages" >
+			<t t-call="website.layout">
+                <t t-set="title" >
+					Boss Pacific
+				</t>
+                <!-- page content -->
+					<t t-if="urlpart1 == 'product'">
+						<t t-call="bosspac_resource.page_product"></t>
+					</t>
+            </t>
+        </template>
+    </data>
+</odoo>
